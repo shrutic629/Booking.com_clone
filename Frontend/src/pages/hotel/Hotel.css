@@ -33,6 +33,8 @@
 .hotelImg{
     width: 100%;
     object-fit: cover;
+    height: 224px;
+    width: 337px;
 }
 .hotelAddress{
     font-size: 12px;

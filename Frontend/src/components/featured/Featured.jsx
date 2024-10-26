@@ -1,32 +1,55 @@
-import React from 'react'
-import './Featured.css'
+import React from "react";
+import "./Featured.css";
+import useFetch from "../../hooks/useFetch.js";
 
 const Featured = () => {
+  const { data, loading, error } = useFetch(
+    "http://localhost:8800/hotels/countByCity?cities=maldives,goa,jaipur"
+  );
+  // console.log(data)
   return (
-    <div className='featured'>
-        <div className="featuredItem">
-            <img src="https://cf2.bstatic.com/xdata/images/city/600x600/971346.jpg?k=40eeb583a755f2835f4dcb6900cdeba2a46dc9d50e64f2aa04206f5f6fce5671&o=" alt="image not found" className='featuredImg'/>
+    <div className="featured">
+      {loading ? (
+        "Loading please wait"
+      ) : (
+        <>
+          <div className="featuredItem">
+            <img
+              src="https://static1.evcdn.net/images/reduction/355607_w-600_h-600_q-70_m-crop.jpg"
+              alt="image not found"
+              className="featuredImg"
+            />
             <div className="featuredTitles">
-                <h1>Mumbai</h1>
-                <h2>123 Properties</h2>
+              <h2 className="fCountryName">Maldives</h2>
+              <span className="pCount">{data[0]} Properties</span>
             </div>
-        </div>
-        <div className="featuredItem">
-            <img src="https://cf2.bstatic.com/xdata/images/city/600x600/684765.jpg?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o=" alt="image not found" className='featuredImg'/>
+          </div>
+          <div className="featuredItem">
+            <img
+              src="https://static.wanderon.in/wp-content/uploads/2024/07/places-to-visit-in-goa-in-july.jpg"
+              alt="image not found"
+              className="featuredImg"
+            />
             <div className="featuredTitles">
-                <h1>New Delhi</h1>
-                <h2>143 Properties</h2>
+              <h2 className="fCountryName">Goa</h2>
+              <span className="pCount">{data[1]} Properties</span>
             </div>
-        </div>
-        <div className="featuredItem">
-            <img src="https://cf2.bstatic.com/xdata/images/city/600x600/684730.jpg?k=e37b93d88c1fe12e827f10c9d6909a1def7349be2c68df5de885deaa4bc01ee3&o=" alt="image not found" className='featuredImg'/>
+          </div>
+          <div className="featuredItem">
+            <img
+              src="https://img.etimg.com/thumb/msid-70104165,width-650,height-488,imgsize-1445127,resizemode-75/jaipur_gettyimages.jpg"
+              alt="image not found"
+              className="featuredImg"
+            />
             <div className="featuredTitles">
-                <h1>Chennai</h1>
-                <h2>103 Properties</h2>
+              <h2 className="fCountryName">Jaipur</h2>
+              <span className="pCount">{data[2]} Properties</span>
             </div>
-        </div>
+          </div>
+        </>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Featured
+export default Featured;

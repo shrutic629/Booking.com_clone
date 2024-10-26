@@ -12,13 +12,24 @@
     border-radius: 10px;
     overflow: hidden;
     height: 250px;
+    width: 328px;
 }
 .featuredImg{
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .featuredTitles{
     position: absolute;
     bottom: 10px;
-    left: 20p;
+    left: 20px;
+}
+
+.fCountryName {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+.pCount {
+    font-weight: bold;
 }
